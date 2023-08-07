@@ -1,6 +1,6 @@
 
 ## Installation Guide for WSL2 and MacOS Ventura
-How to install macOS Ventura on Windows 11 using WSL2, QEMU, and Docker
+How to install macOS Ventura on Windows 11 using WSL2, QEMU, and Docker.
 
 
 Based off [/sickcodes/Docker-OSX](https://github.com/sickcodes/Docker-OSX)
