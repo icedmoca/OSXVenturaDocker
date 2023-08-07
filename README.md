@@ -55,6 +55,7 @@ sudo /etc/init.d/dbus start &> /dev/null
 
 ## Run macOS Ventura using Docker in WSL2:
 1. In your WSL2 instance, execute the following command to run macOS Ventura using Docker:
+* Note: You may have to change the directory /mnt/wslg/ depending on your system, the ending is wslg
 ```
 docker run \
 --device /dev/kvm \
