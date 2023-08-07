@@ -17,7 +17,7 @@ How to install macOS Ventura on Windows 11 using WSL2, QEMU, and Docker
    - **xubuntu-desktop:** Provides the Xubuntu desktop environment, a lightweight environment for UNIX-like operating systems based on the XFCE desktop environment.
    - **gtk2-engines:** Provides engines for the GTK2 toolkit, used to render the user interface for various themes.
 
-`curl -o install_prerequisites.sh https://raw.githubusercontent.com/icedmoca/OSXVenturaDocker/main/install_prerequisites.sh && chmod +x install_prerequisites.sh && ./install_prerequisites.sh`
+```curl -o install_prerequisites.sh https://raw.githubusercontent.com/icedmoca/OSXVenturaDocker/main/install_prerequisites.sh && chmod +x install_prerequisites.sh && ./install_prerequisites.sh```
 ##
 ## Installing WSL2 on Windows 10/11
 
