@@ -34,10 +34,9 @@ sudo tasksel install xubuntu-desktop
 sudo apt install gtk2-engines
 ```
 3. Switch to the root user and edit the .bashrc file using a text editor like vim or nano:
-```
-vim ~/.bashrc
-nano ~/.bashrc
-```
+
+``` vim ~/.bashrc ```
+``` nano ~/.bashrc ```
 4. Add the following lines to the end of the file:
 ```
 export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0
