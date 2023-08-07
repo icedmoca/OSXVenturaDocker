@@ -35,9 +35,13 @@ sudo apt install gtk2-engines
 ```
 3. Switch to the root user and edit the .bashrc file using a text editor like vim or nano:
 
-``` vim ~/.bashrc ```
+``` 
+vim ~/.bashrc 
+```
 
-``` nano ~/.bashrc ```
+``` 
+nano ~/.bashrc 
+```
 
 4. Add the following lines to the end of the file:
 ```
