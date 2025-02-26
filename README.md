@@ -77,3 +77,83 @@ sickcodes/docker-osx:ventura
 ```
 
 Follow these steps sequentially after setting up WSL2 to have a fully functional macOS Ventura environment within your Windows system.
+
+## Troubleshooting Common Issues
+
+### Docker Issues
+
+1. **"Cannot connect to the Docker daemon" error**
+   - Ensure Docker service is running: `sudo systemctl start docker`
+   - Verify your user is in the docker group: `groups | grep docker`
+   - If not in group, run: `sudo usermod -aG docker $USER` and then log out and back in
+
+2. **KVM not available error**
+   - Ensure KVM is enabled in your BIOS/UEFI settings
+   - Check if KVM is available: `ls -la /dev/kvm`
+   - If permission denied: `sudo chmod 666 /dev/kvm`
+
+3. **Docker image pull failure**
+   - Check your internet connection
+   - Try with explicit version tag: `sickcodes/docker-osx:ventura-latest`
+   - If Docker Hub is rate-limiting you, try authenticating: `docker login`
+
+### Display/GUI Issues
+
+1. **Black screen or no display**
+   - Ensure VcXsrv is running with "Disable access control" checked
+   - Verify DISPLAY environment variable: `echo $DISPLAY`
+   - Try restarting the X server and your WSL instance
+
+2. **Graphical glitches or poor performance**
+   - Reduce the resolution in the macOS settings
+   - Ensure your GPU drivers are up to date
+   - Allocate more resources to WSL2 (see WSL config file)
+
+### Audio Issues
+
+1. **No sound**
+   - Verify the PulseAudio socket path is correct
+   - Check if PulseAudio is running in WSL: `pactl info`
+   - Try reinstalling PulseAudio: `sudo apt install --reinstall pulseaudio`
+
+### macOS Boot Issues
+
+1. **Stuck at boot screen**
+   - Be patient, first boot can take 10+ minutes
+   - Try increasing RAM allocation to the Docker container
+   - Check Docker logs: `docker logs <container_id>`
+
+2. **Installation loop or recovery mode**
+   - Ensure you're using the correct Docker image version
+   - Try with a different macOS version (e.g., Big Sur instead of Ventura)
+   - Check if your CPU supports the required virtualization features
+
+   ## Version Compatibility Information
+
+### Windows Requirements
+- **Windows 10**: Version 2004 (Build 19041) or higher
+- **Windows 11**: Any version (recommended)
+
+### WSL2 Requirements
+- WSL2 kernel version 5.10.16 or higher (check with `uname -r`)
+- Ubuntu 20.04 LTS or Ubuntu 22.04 LTS recommended
+- Minimum 8GB RAM allocated to WSL2
+- Minimum 4 CPU cores allocated to WSL2
+
+### Docker Requirements
+- Docker Engine 20.10.x or higher
+- Docker Desktop for Windows with WSL2 backend enabled
+
+### VcXsrv Requirements
+- VcXsrv version 1.20.9.0 or higher
+
+### Hardware Requirements
+- CPU with virtualization support (Intel VT-x or AMD-V)
+- Minimum 16GB system RAM (32GB recommended)
+- At least 50GB free disk space
+- SSD storage recommended for better performance
+
+### macOS Ventura Compatibility
+- Works best with sickcodes/docker-osx:ventura (tag version 11.0 or higher)
+- Requires at least 4GB RAM allocated to the Docker container
+- Performance improves significantly with 8GB+ RAM allocation
